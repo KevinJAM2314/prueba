@@ -1,0 +1,286 @@
+/* Theme Variables */
+:root {
+    /* Light Theme Colors */
+    --bg-primary: #F5F5F5;
+    --bg-secondary: #FFFFFF;
+    --text-primary: #333333;
+    --text-secondary: #34495E;
+    --accent-color: #27AE60;
+    --card-bg: #FFFFFF;
+    --card-hover-bg: #F8F9FA;
+    --input-bg: #F8F9FA;
+    --input-border: #BDC3C7;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme Colors */
+.dark-theme {
+    --bg-primary: #121212;
+    --bg-secondary: #1E1E1E;
+    --text-primary: #E0E0E0;
+    --text-secondary: #BBBBBB;
+    --accent-color: #4CAF50;
+    --card-bg: #222831;
+    --card-hover-bg: #2C2F36;
+    --input-bg: #2C2F36;
+    --input-border: #4CAF50;
+    --shadow: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.main-content {
+    flex: 1;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Mobile Menu Button */
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: var(--bg-secondary);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 2px 4px var(--shadow);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+}
+
+/* Card Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    background-color: var(--card-hover-bg);
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.card-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+/* Edit Button */
+.edit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.edit-btn:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 85%, white);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--bg-secondary);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+    font-size: 14px;
+    box-shadow: 0 -2px 4px var(--shadow);
+}
+
+/* Form Styles */
+.post-form {
+    background-color: var(--bg-secondary);
+    padding: 25px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 10px var(--shadow);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-form h2 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.post-form label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.post-form input, 
+.post-form textarea {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 16px;
+    outline: none;
+    display: block;
+    margin: 0 auto;
+    resize: none;
+}
+
+.post-form input:focus, 
+.post-form textarea:focus {
+    border: 2px solid var(--accent-color);
+    box-shadow: 0px 0px 8px color-mix(in srgb, var(--accent-color) 50%, transparent);
+}
+
+.submit-btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 85%, white);
+    transform: scale(1.05);
+}
+
+/* Theme Toggle Button (Optional) */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+    .post-form {
+        max-width: 90%;
+        padding: 20px;
+    }
+}
